@@ -35,7 +35,7 @@ class LocalityService:
             key = cp
             
             for row in rows:
-                print('Fila:')
+                # print('Fila:')
                 cells = row.findAll("td")
                 if len(cells)>0 and len(cells)==7:
                     newLoc = Locality()
