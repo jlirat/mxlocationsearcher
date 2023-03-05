@@ -11,6 +11,5 @@ api.init_app(app)
 
 app.register_blueprint(LocalityController().blueprint)
 @app.route("/")
-
 def hello_world():
     return "<p>Online</p>"
