@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, make_response
 # from flask_restx import Namespace, Resource, fields
 
 from services.LocalityService import LocalityService
@@ -28,7 +28,14 @@ class LocalityController:
     # @api.marshal_with(locality)
     # @api.param("cp", "Postal code")
     # @api.response(200, "List of localities")
-    def get(self, cp: int):
+    def get(self, cp):
+        if (len(cp)!=5):
+            return make_response({
+            jsonify({
+                "message": str('Parameter postal code length is not valid'), "severity": "danger"})
+            }), 406
+        
         response = self.service.getLocality(cp)
-        lst = [o.__dict__ for o in response]
-        return jsonify({'entities':lst})
+        
+        # lst = [o.__dict__ for o in response]
+        return jsonify(response.as_dict())
