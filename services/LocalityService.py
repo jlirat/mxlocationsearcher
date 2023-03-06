@@ -47,7 +47,7 @@ class LocalityService:
                         newLoc.state = clean_string(cells[6].text.strip()).upper()
                         firstRow = True
                     town = {
-                            "name": cells[0].text.strip(),
+                            "name": cells[0].text.strip().upper(),
                             "type": clean_string(cells[1].text.strip()).upper()
                     }
                     towns.append(town)
