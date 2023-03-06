@@ -1,5 +1,7 @@
 /Pipfile
 /Pipfile.lock
 /__pycache__
-*__pycache__
+**/__pycache__/
+**/__pycache__/*
 
+controllers/__pycache__/LocalityController.cpython-311.pyc
